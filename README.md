@@ -22,9 +22,9 @@ Streamer.Bot with OBS Websocket enabled
 4. Add a valid `path` to the the Action `Chat - !romhack`
 4. Enable the `!romhack` command, add `Hot Keys` to `Exit++` and `Exit--`
 5. Run `!romhack setup` while being offline.
-	
-### Import Code
-[romhack.txt](/romhack.txt)
+
+### Import Code 
+[See Releases](https://github.com/synthie-cat/-romhack/releases/tag/V1)
 
 ## Usage
 
