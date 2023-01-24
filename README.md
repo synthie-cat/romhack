@@ -28,13 +28,15 @@ Streamer.Bot with OBS Websocket enabled
 
 ## Usage
 
-| Command          | Description                                                   | Permissions   |
-|------------------|---------------------------------------------------------------|---------------|
-| `!romhack setup` | Creates the `[O]Romhack Info` overlay scene that will be updated | **Broadcaster Only** |
-| `!romhack update Romhack Name` | Updates the overlay to the specified romhack. | Broadcaster and Moderators|
-| `!romhack restore` | Reverts the overlay to its previous state. | Broadcaster and Moderators |
-| `!romhack search Romhack name` | Searches for a romhack on SMW Central | Available to all users |
-| `!romhack suggest Romhack Name` | Adds a romhack suggestion to the _suggestions.md file in your path | Available to all users |
+| Command 	                       	| Description 								| Streamer| Mods | Viewers |
+|--------------------------------------	|-------------								|---|---|---|
+| `setup` 	                       	| Creates the "[O]Romhack Info" overlay scene that will be updated       | ✓ |   |   |
+| `update [ROM Hack Name]` 	       	| Updates the overlay to the specified ROM Hack.            		| ✓ | ✓ |   |
+| `restore`	                       	| Reverts the overlay to the previous hack.            			| ✓ | ✓ |   |
+| `manual [Name, Creator, Type, Exits]`	| Takes a list of comma seperated values to manually generate an overlay| ✓ | ✓ |   |
+| `search [ROM Hack Name]`		| Searches SMW Central for a ROM Hack and posts it to chat            	| ✓ | ✓ | ✓ |
+| `suggest [ROM Hack Name]` 		| Add a ROM Hack to the suggestions list				| ✓ | ✓ | ✓ |      
+
 
 ## Contributions
 
@@ -47,7 +49,7 @@ I gladly welcome contributions and feature requests for this setup. Feel free to
 - Parse by ID
 - Search for Tools, ASM, Music
 - RHR parsing
-- Manual updating (for Romhack Testing)
+- ~~Manual updating (for Romhack Testing)~~
 
 ## License
 
