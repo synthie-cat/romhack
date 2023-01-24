@@ -42,6 +42,13 @@ I gladly welcome contributions and feature requests for this setup. Feel free to
 
 **A HUGE SHOUTOUT** to [EvilAdmiralKivi](https://twitch.tv/eviladmiralkivi) who wrote the parser and without whom this would not exist.
 
+## Upcoming features
+- Auto Download of game covers
+- Parse by ID
+- Search for Tools, ASM, Music
+- RHR parsing
+- Manual updating (for Romhack Testing)
+
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
