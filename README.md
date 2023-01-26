@@ -30,13 +30,13 @@ Streamer.Bot with OBS Websocket enabled
 
 | Command 	                       	| Description 								| Streamer| Mods | Viewers |
 |--------------------------------------	|-------------								|---|---|---|
-| `setup` 	                       	| Creates the "[O]Romhack Info" overlay scene that will be updated       | ✓ |   |   |
-| `update [ROM Hack Name]` 	       	| Updates the overlay to the specified ROM Hack.            		| ✓ | ✓ |   |
-| `restore`	                       	| Reverts the overlay to the previous hack.            			| ✓ | ✓ |   |
-| `manual [Name, Creator, Type, Exits]`	| Takes a list of comma seperated values to manually generate an overlay| ✓ | ✓ |   |
+| `suggest [ROM Hack Name]` 		| Add a ROM Hack to the suggestions list				| ✓ | ✓ | ✓ |
 | `search [ROM Hack Name]`		| Searches SMW Central for a ROM Hack and posts it to chat            	| ✓ | ✓ | ✓ |
-| `suggest [ROM Hack Name]` 		| Add a ROM Hack to the suggestions list				| ✓ | ✓ | ✓ |      
-
+| `manual [Name, Creator, Type, Exits]`	| Takes a list of comma seperated values to manually generate an overlay| ✓ | ✓ |   |
+| `id [id]`	| Use an SMW Central ID to update your Overlay| ✓ | ✓ |   |
+| `restore`	                       	| Reverts the overlay to the previous hack.            			| ✓ | ✓ |   |
+| `update [ROM Hack Name]` 	       	| Updates the overlay to the specified ROM Hack.            		| ✓ | ✓ |   |
+| `setup` 	                       	| Creates the "[O]Romhack Info" overlay scene that will be updated       | ✓ |   |   |
 
 ## Contributions
 
@@ -44,12 +44,24 @@ I gladly welcome contributions and feature requests for this setup. Feel free to
 
 **A HUGE SHOUTOUT** to [EvilAdmiralKivi](https://twitch.tv/eviladmiralkivi) who wrote the parser and without whom this would not exist.
 
-## Upcoming features
-- Auto Download of game covers
-- Parse by ID
-- Search for Tools, ASM, Music
-- RHR parsing
-- ~~Manual updating (for Romhack Testing)~~
+## Working on:
+
+| Feature | Planned for Release Version |
+|---|---:|
+| Generate HTML | 1.1 |
+| Search for Tools, ASM, Music, Blocks |  1.2|
+
+## Added features
+| Feature | Version |
+|---|---:|
+| Cover  in OBS | 1.1 |
+| Manual update | 1.1 |
+| Parse by ID | 1.1 |
+
+### ToDo:
+- Update Setup methods for ID
+- OBS Raw for Cover
+
 
 ## License
 
