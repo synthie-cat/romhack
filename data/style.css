@@ -1,0 +1,89 @@
+body {
+    background-color: #065760; 
+    color: #262626; 
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+h1 {
+    color: #ffffff;
+    font-family: "Press Start 2P", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0px 1px #073a3f, 1px 2px #073a3f, 2px 3px #073a3f, 3px 4px #073a3f, 4px 5px #073a3f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+table {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #CDEBFF;
+    color: #262626;
+    padding: 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: #FFCDCD;
+    color: #262626;
+    padding: 10px;
+}
+
+td {
+    padding-left: 4px;
+    padding-right: 10px;
+}
+th {
+	padding-left: 4px;
+	padding-right: 10px; 
+}
+
+a {
+    color: #262626;
+}
+
+footer {
+	font-family: "Press Start 2P", sans-serif;
+    font-size: 8px;
+    padding: 10px;
+    background-color: #C1839F;
+    color: #262626;
+    position: fixed;
+    bottom: 0;
+	left: 0; 
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    font-size: 10px;
+    margin: 0 auto;
+	text-align: center;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    table {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    body {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 16px;
+    }
+    table {
+        width: 95%;
+    }
+}
