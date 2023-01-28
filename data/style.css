@@ -8,11 +8,10 @@ h1 {
     color: #ffffff;
     font-family: "Press Start 2P", sans-serif;
     text-transform: uppercase;
-    text-shadow: 0px 1px #073a3f, 1px 2px #073a3f, 2px 3px #073a3f, 3px 4px #073a3f, 4px 5px #073a3f;
+    text-shadow: 1px 2px #073a3f, 2px 3px #073a3f, 4px 5px #073a3f, 6px 7px #073a3f, 8px 9px #073a3f;
     margin-bottom: 20px;
     text-align: center;
 }
-
 
 table {
     margin: 0 auto;
