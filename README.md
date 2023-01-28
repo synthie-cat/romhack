@@ -48,7 +48,7 @@ I gladly welcome contributions and feature requests for this setup. Feel free to
 
 | Feature | Planned for Release Version |
 |---|---:|
-| Generate HTML | 1.1 |
+| ~~Generate HTML~~ Use SQLite (Also to generate HTML) | 1.1 |
 | Search for Tools, ASM, Music, Blocks |  1.2|
 
 ## Added features

@@ -11,7 +11,7 @@ public class CPHInline
         try
         {
             int exits = int.Parse(value[3]); // Try parsing exit numbers into an int to count it later.
-        } 
+        }
         catch (FormatException e) // 
         {
             CPH.SendMessage("Error: " + e.Message);

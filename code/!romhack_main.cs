@@ -3,7 +3,6 @@
  * Authors: EvilAdmiralKivi (Parser) and synthie_cat
  * Published under MIT License
 */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,16 +35,28 @@ public class CPHInline
         /* 
 		Processing the inputs for commands
 		*/
-        var(command, romhackSearch, romhackBackup, logTime, historyPath, suggestionsPath) = ProcessInput(romhackInput, directory);
+        var (command, romhackSearch, romhackBackup, logTime, historyPath, suggestionsPath) = ProcessInput(romhackInput, directory);
         /* 
 		Error dictionary
 		*/
-        Dictionary<string, string> errorMessages = new Dictionary<string, string>{{"http-error", "Error: HTTP Error occurred. Please try again."}, {"no-results", "Error: No results found. Make sure the Romhack exists and your spelling is correct."}, {"multiple-results", "Error: Multiple results found. Please write the complete name of the Romhack you are looking for."}};
+        Dictionary<string, string> errorMessages = new Dictionary<string, string> { { "http-error", "Error: HTTP Error occurred. Please try again." }, { "no-results", "Error: No results found. Make sure the Romhack exists and your spelling is correct." }, { "multiple-results", "Error: Multiple results found. Please write the complete name of the Romhack you are looking for." } };
         /* 
 		Parse the Input
 		*/
         RomhackInfo info = Parser.GetRomhackInfo(romhackSearch).GetAwaiter().GetResult();
-        if (info.Error != null) // If there's an error we cannot proceed; tell the user what went wrong
+        if (info.Error != null && command == "manual" && (currentUser == broadcastUser || targetUserMod))
+        {
+            CPH.SetGlobalVar("manualUpdate", romhackSearch, true);
+            CPH.ExecuteMethod("romhackManualUpdate", "");
+        }
+        else if (info.Error != null && command == "id" && (currentUser == broadcastUser || targetUserMod))
+        {
+            CPH.LogDebug(romhackSearch);
+            CPH.SetGlobalVar("info.ParseById", romhackSearch, true);
+            CPH.GetGlobalVar<string>("info.ParseById");
+            CPH.ExecuteMethod("romhackParseById", "");
+        }
+        else if (info.Error != null)
         {
             CPH.SendMessage(errorMessages[info.Error]);
         }
@@ -81,8 +92,13 @@ public class CPHInline
                 case "suggest":
                     if (File.Exists(suggestionsPath)) // Add the information of the suggestion to the table
                     {
-                        File.AppendAllText(suggestionsPath, $"| {logTime} | {info.Name} | {info.Author} | {info.Exits} | {info.Type} | {info.Url} | {currentUser} | " + Environment.NewLine);
-                        CPH.SendMessage($"Successfully added {info.Name} to the suggestions, {currentUser}");
+                        CPH.SetGlobalVar("temp.Name", info.Name, true);
+                        CPH.SetGlobalVar("temp.Author", info.Author, true);
+                        CPH.SetGlobalVar("temp.Type", info.Type, true);
+                        CPH.SetGlobalVar("temp.Exits", info.Exits, true);
+                        CPH.SetGlobalVar("temp.Url", info.Url, true);
+                        CPH.SetGlobalVar("temp.CurrentUser", currentUser, true);
+                        CPH.ExecuteMethod("romhackSuggestionsToDB", "");
                     }
                     else // Error if suggestions file does not exist.
                     {
@@ -261,7 +277,7 @@ public class Parser
             }
             catch (Exception ex)
             {
-            // Do nothing
+                // Do nothing
             }
 
             /* Type */
@@ -301,7 +317,6 @@ public class RomhackInfo
         this.Author = author;
         this.Error = error;
         var match = Regex.Match(url, @"id=(\d+)");
-        string id = match.Groups[1].Value;
-        this.Url = "https://www.smwcentral.net/?p=section&a=details&id=" + id;
+        this.Url = "https://www.smwcentral.net/?p=section&a=details&id=" + match.Groups[1].Value;
     }
 }
