@@ -5,13 +5,12 @@ public class CPHInline
 {
     public bool Execute()
     {
-        CPH.ExecuteMethod("romhackBackup", ""); // Generate Backup
         string manualInput = CPH.GetGlobalVar<string>("manualUpdate"); // Fetch the manual update data
         string[] value = manualInput.Split(','); // Split data into values. Values are: Name, Author, Type, Exits, URL
         try
         {
             int exits = int.Parse(value[3]); // Try parsing exit numbers into an int to count it later.
-        }
+        } 
         catch (FormatException e) // 
         {
             CPH.SendMessage("Error: " + e.Message);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using HtmlAgilityPack;
 using System.Xml;
@@ -9,11 +9,11 @@ public class CPHInline
 {
     public bool Execute()
     {
-        string id = CPH.GetGlobalVar<string>("info.ParseById");
+		string id = CPH.GetGlobalVar<string>("info.ParseById");
         string url = "https://www.smwcentral.net/?p=section&a=details&id=" + id;
         var web = new HtmlWeb();
         var doc = web.Load(url);
-        // Name
+		// Name
         var nameNode = doc.DocumentNode.SelectSingleNode("//td[text()='Name:']/following-sibling::td[1]/a");
         if (nameNode != null)
         {
